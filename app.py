@@ -102,7 +102,7 @@ def main():
             temperature=0.0
         )
 
-        rag_chain_with_memory = create_rag_chain(chat_model=chat_model)
+        rag_chain = load_rag_chain(chat_model)
         
         if "session_id" not in st.session_state:
             import uuid
@@ -130,7 +130,7 @@ def main():
 
         with st.spinner("CLINICO is looking for information..."):
             try:
-                response = rag_chain_with_memory.invoke(
+                response = rag_chain.invoke(
                     {"input": prompt},
                     config={
                         "configurable": {"session_id": st.session_state.session_id}

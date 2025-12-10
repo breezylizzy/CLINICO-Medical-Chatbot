@@ -1,5 +1,4 @@
 import streamlit as st
-from dotenv import load_dotenv
 import os
 
 from langchain_openai import ChatOpenAI
@@ -7,15 +6,15 @@ from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
 from src.retriever import get_base_retriever
 from src.chain import create_rag_chain
-from src.config import OPENAI_API_KEY
 
 def main():
+    
     st.set_page_config(
         page_title="CLINICO Medical Assistant",
         page_icon="🩺",
         layout="centered",
     )
-
+    
     st.markdown("""
     <style>
 
@@ -93,6 +92,10 @@ def main():
     """)
 
     try:
+        OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY")
+        if not OPENAI_API_KEY:
+            raise ValueError("Kunci API OpenAI tidak ditemukan. Harap atur 'OPENAI_API_KEY' di Streamlit Secrets.")
+
         chat_model = ChatOpenAI(
             openai_api_key=OPENAI_API_KEY, 
             model="gpt-4o-mini", 

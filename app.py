@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import uuid
 
@@ -7,7 +6,6 @@ from src.chain import load_rag_chain
 
 @st.cache_resource
 def load_chat_model(openai_key: str):
-    """Load ChatOpenAI model only once (strings are hashable so this is safe)."""
     return ChatOpenAI(
         openai_api_key=openai_key,
         model="gpt-4o-mini",

@@ -9,9 +9,9 @@ from src.reranker import get_rerank_retriever
 
 
 @st.cache_resource
-def load_rag_chain(chat_model):
+def load_rag_chain(_chat_model): 
     qa_chain = create_stuff_documents_chain(
-        llm=chat_model,
+        llm=_chat_model,
         prompt=prompt
     )
 

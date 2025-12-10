@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Medical Chatbot RAG System
 
 Sistem chatbot medis berbasis RAG (Retrieval-Augmented Generation) dengan agentic AI menggunakan LangChain, LangGraph, Pinecone, dan HuggingFace.
@@ -317,3 +318,6 @@ MIT License - bebas digunakan untuk project pribadi maupun komersial.
 **Happy Coding! 🚀**
 
 Jika ada pertanyaan, silakan hubungi atau buat issue di repository.
+=======
+# CLINICO-Medical-Chatbot
+>>>>>>> abeaf1e21ebddae7d7b66025d04f37e62f2f6987

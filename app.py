@@ -96,12 +96,7 @@ def main():
         if not OPENAI_API_KEY:
             raise ValueError("Kunci API OpenAI tidak ditemukan. Harap atur 'OPENAI_API_KEY' di Streamlit Secrets.")
 
-        chat_model = ChatOpenAI(
-            openai_api_key=OPENAI_API_KEY, 
-            model="gpt-4o-mini", 
-            temperature=0.0
-        )
-
+        chat_model = load_chat_model(OPENAI_API_KEY)
         rag_chain = load_rag_chain(chat_model)
         
         if "session_id" not in st.session_state:

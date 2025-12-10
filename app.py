@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
 from src.retriever import get_base_retriever
-from src.chain import create_rag_chain
+from src.chain import load_rag_chain
 
 def main():
     

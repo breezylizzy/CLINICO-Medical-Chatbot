@@ -136,30 +136,20 @@ def main():
                         "configurable": {"session_id": st.session_state.session_id}
                     }
                 )
-
+            
                 ai_response = response.get(
                     "answer",
                     "Sorry, I couldn’t find any related information."
                 )
                 
                 NO_SOURCE_MESSAGE = "<<< NO_RELEVANT_SOURCES >>>"
-
+            
                 if NO_SOURCE_MESSAGE in ai_response:
                     ai_response = "I could not find any relevant sources."
-                elif "context" in response and response["context"]:
-                    
-                    sources = {
-                        os.path.basename(doc.metadata.get("source")) 
-                        for doc in response["context"] 
-                        if doc.metadata.get("source") 
-                    }
-                    
-                    if sources:
-                        source_text = "\n\n**References used:**\n" + "\n".join(f"* {s}" for s in sources)
-                        ai_response += source_text
+            
             except Exception as e:
                 ai_response = f"An error occurred while processing your request: {e}"
-
+                
         st.session_state.messages.append(AIMessage(content=ai_response))
         with st.chat_message("assistant", avatar="🤖"):
             st.markdown(ai_response)

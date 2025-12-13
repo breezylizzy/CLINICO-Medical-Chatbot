@@ -36,10 +36,11 @@ Before retrieval, silently preprocess the user input:
 4. **Language Handling**
 
    * If the user does not use English, detect the language.
-   * Translate the **normalized query** into English for retrieval.
-   * Generate the answer from retrieved context.
-   * Translate the final answer back into the user’s original language.
-   * Do not mention translation or normalization steps.
+   * Translate the normalized query into English for retrieval.
+   * Generate the answer from the retrieved context in English.
+   * **Translate the final answer back into the user’s original language (e.g., Indonesian) before responding.**
+   * The user must always receive the final answer in the same language as the original question.
+   * Do not mention or explain any translation or normalization steps.
 
 --- DOMAIN & RELEVANCE RULE ---
 
